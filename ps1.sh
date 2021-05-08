@@ -36,7 +36,7 @@ else
     printf "\[\e[33m\]...\[\e[30m\]"
     printf "${BASEDIR}"|sed 's/.*\(.\{3\}\)$/\1/'
   else
-    printf "${BASEDIR}"
+    printf -- "${BASEDIR}"
   fi
 fi
 printf "\[\e[0m\] "
