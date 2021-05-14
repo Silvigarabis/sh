@@ -1,7 +1,7 @@
 ( 
   (
     coproc nc "$@"
-    C=${COPROC_PID}
+    C=(${COPROC_PID} ${COPROC[@]})
     coproc {
       while true; do
         bash
@@ -11,12 +11,12 @@
           echo "restart shell..."
         fi
       done
-    } <&${COPROC} >&${COPROC[1]}
+    } <&${C[1]} >&${C[2]}
     coproc {
       while sleep 5; do
         echo
       done
-    } >&${COPROC[1]}
+    } >&${C[2]}
     wait ${C}
     F="${HOME}/.connect.$(date +%Y%m%d-%H%M%S).log"
     echo "connect return status $?" >>"$F"
