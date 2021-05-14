@@ -1,0 +1,1 @@
+$(CODE="$?"; if [ "${CODE}" = 0 ]; then COLOUR="30;47"; HEAD="\!"; else COLOUR="33;41"; HEAD="${CODE}"; fi; echo "\[\e[0;43;34m\]\t\[\e[0;${COLOUR}m\]${HEAD}\[\e[1;36;45m\]\W\[\e[0m\] \[\e[1;43;30m\]")
